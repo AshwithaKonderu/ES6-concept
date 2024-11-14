@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//  ES6(ecma (European computer manifacturers Association)script)
+// here we have several  advanced methods
+// 1)Destructuring Assignment
+// way to extract values from arrays or objects and assign them to variables in a clear/breif manner
+// example1.1)
+let arr=[1,4,6,4,6,2,"Ashh"]
+const[a,b,c,x,y,z]=arr
+console.log(a,b,c,x,y,z,)
+
+// 1.2
+let arr1=[1,4,7,[],{
+    name:"AShii",
+    occupation:"Student"
+}]
+const [k,l,m,n,o]=arr1
+console.log(k,l,m,n,o)
+
+
+//  1.3
+let obj={
+    name:"Ashwitha",
+    age:24,
+    city:"HYD",
+
+}
+let {name:ashh,age:ages,city:hyd}=obj;
+console.log(ages)
+
+// 2)Default parameters
+// allow named parameter to be initialized with default values if no value is passed
+// default parameters are applied when arguments rae passed as undefined ..(if we pass any falsy values it takes as an arguments and default will not work)
+// 2.1
+function defaultt(a,b=99){
+    console.log(a+b)
+
+}
+defaultt(5)
+// 2.2
+function default1(a,b=99,c=100){
+console.log(a+b+c)}
+default1(20,50,10)
+
+
+  function user_input(ash,age){
+    console.log( ash1=prompt("Enter your name"))
+    console.log(age1=(new Date().getFullYear()-2003))
+  }
+  user_input("AShwithaa")
+
+
+//  3) Spread Operator
+// it isdenoted by (...)
+// spread operator is used to move elements from one place to other ,,expands the array or object.
+let spread_arr=[1,2,3,45,"ashwitha","ushaa",34,{names:"ashh",ages:45}]
+ let spread_arr2=[0,7,8,...spread_arr]
+ console.log(spread_arr2)
+
+
+ let spread_fun=(a=1,b=5,c,d,...rest)=>{
+    console.log(a,b,c,rest)
+
+ }
+spread_fun(2,4,5,6,7,8,9)
+// 
+let obj_1={name:"ashh",age:24,
+    city:"HYD",occupation:"student"
+}
+obj_2={
+    clg:"MRITS",
+    percentage:"89",...obj_1
+}
+obj_3={
+    sub:"DBMS",...obj_1,...obj_2
+}
+console.log(obj_3)
+
+// 4) Rest Operator
+// it is denoted by (...)
+// rest operator is used to collect all the arguments in an array.
+// used to collect multiple elements into a single array or object.
+let rest_arr=[1,3,2,5,7,8,9,6]
+let rest_arr2=["ashh","3reshh","sonnyy2",...rest_arr]
+console.log(rest_arr2)
+
+
+ let rest_fun=(ash,reshh,...args)=>{
+    console.log(args)
+    
+ }
+ rest_fun(1,2,3,4,5,6,7,8,9)
+// 
+
+ function additionn(...d){
+
+    let sum=0
+    for(i of d){
+        sum=sum+i
+        console.log(sum)
+    }
+ }
+ additionn(1,3,4,2,1,8,7,2,1)
+
+// copying of objects
+//  shallow copy and Deep copy
+// 1)shallow copy
+// it copies the references to the original values...
+// changes in the original Array or object
+ let obj_copy={name:"ashi",marks:{html:34,CSS:87,JS:93},course:"fullstack"}
+ let shallow_obj={...obj_copy}
+ shallow_obj.name="ashwitha"
+ shallow_obj.marks.html=80
+ console.log(shallow_obj)
+
+ // Deep copy example
+//  no changes in original array or object.
+// ḥere we use json methods
+
+let original = { a: 1, b: { x: 10, y: 20 } };
+
+// Deep copy using JSON methods
+let deepCopy = JSON.parse(JSON.stringify(original));
+
+// Modifying a nested object in the deep copy will NOT affect the original
+deepCopy.b.x = 30;
+
+console.log(original.b.x);  // Output: 10 (original object is NOT modified)
+console.log(deepCopy.b.x);  // Output: 30
+//  
+let deep_arr=[1,2,3,4,5]
+
+console.log(deep_arr)
+let deep_copy=JSON.stringify(deep_arr)
+deep_copy[1]=20
+console.log(deep_copy)
+
+let parse_arr=JSON.parse(deep_copy)
+console.log(parse_arr)
+    </script>
+</body> 
+</html>
